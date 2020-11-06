@@ -25,5 +25,11 @@ const GlobalStyle = createGlobalStyle`
   body, input, button {
     font-family: 'Roboto', sans-serif;
   }  
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-background-dark);
+  }
+  
 `
 export { GlobalStyle };

@@ -1,18 +1,19 @@
 import React from 'react';
-import { useUser } from '../../context/userContext';
-// import { Container } from './styles';
+import { Main, Title, Description, Subtitle } from './styles';
 
 const Login: React.FC = () => {
-  const { setUser } = useUser();
-
   return (
-    <main>
-      <p>Login</p>
+    <Main>
+      <Title>Gerencie sua diversão</Title>
+      
+      <Description>
+        O Fifogame gestão de fila virtual tem a capacidade de organizar e controlar sua posição na fila de forma rápida e prática.
+      </Description>
 
-      <button onClick={ () => setUser({ id: 15, email: "rbmelolima@gmail.com", name: "Roger Bernardo de Melo Lima" }) }>
-        Login
-      </button>
-    </main>
+      <form action="">
+        <Subtitle>Vamos começar</Subtitle>
+      </form>
+    </Main>
   );
 };
 
