@@ -5,12 +5,10 @@ import UserProvider from '../context/userContext';
 
 import Login from '../pages/login';
 import Register from '../pages/register';
-import { GlobalStyle } from '../styles/global';
 
 export default function Routes () {
   return (
-    <UserProvider>
-      <GlobalStyle />
+    <UserProvider>     
       <BrowserRouter>
         <Switch>
           <Route exact path="/">

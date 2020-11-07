@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import Routes from './routes';
 
+import './styles/global.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <Routes />
