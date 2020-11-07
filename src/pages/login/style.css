@@ -11,6 +11,24 @@ nav.menu {
 nav.menu img {
   width: 90px;
 }
+
+@media screen and (min-width: 576px) {
+  nav.menu {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav.menu {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  nav.menu {
+    padding: 40px;
+  }
+}
 /* Fim do componente navbar */
 
 /* Page login */
@@ -36,6 +54,12 @@ nav.menu img {
   height: 100vh;
 }
 
+#page-login .container {
+  background-color: var(--color-background-dark);
+  width: fit-content;
+  margin: 0 auto;
+}
+
 #page-login main {
   padding: 32px 16px;
   text-align: center;
@@ -54,7 +78,6 @@ nav.menu img {
 
 #page-login main p {
   color: var(--color-primary-light);
-  line-height: 1.4rem;
   font-size: 1rem;
 
   max-width: 350px;
@@ -67,6 +90,78 @@ nav.menu img {
   line-height: 1.4rem;
   font-size: 1rem;
   margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  #page-login main h1 {
+    font-size: 3rem;
+  }
+
+  #page-login main p,
+  #page-login main h4 {
+    font-size: 1.5rem;
+  }
+
+  #page-login main p {
+    max-width: 100%;
+    margin-bottom: 48px;
+  }
+
+  #page-login main h4 {
+    margin-bottom: 32px;
+  }
+
+  #page-login .container {
+    max-width: 600px;
+  }
+
+  #page-login input {
+    width: 450px;
+    padding: 16px 24px;
+    height: 54px;
+  }
+
+  #page-login button.entry {
+    width: 300px;
+    padding: 16px 24px;
+    height: 54px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #page-login main h1 {
+    font-size: 4rem;
+  }
+
+  #page-login main p,
+  #page-login main h4 {
+    font-size: 2rem;
+  }
+
+  #page-login main p {
+    max-width: 100%;
+    margin-bottom: 64px;
+  }
+
+  #page-login main h4 {
+    margin-bottom: 48px;
+  }
+
+  #page-login .container {
+    max-width: 650px;
+  }
+
+  #page-login input {
+    width: 500px;
+    padding: 16px 24px;
+    height: 54px;
+  }
+
+  #page-login button.entry {
+    width: 350px;
+    padding: 16px 24px;
+    height: 54px;
+  }
 }
 
 /* INPUT AND BUTTON */
