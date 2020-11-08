@@ -1,8 +1,6 @@
 import React from 'react';
-
 import logo from '../../assets/logo/logo.svg';
 import entry from '../../assets/icons/entry.svg';
-
 import { CTA, Description, Form, Main, Navbar, PageLogin, Title } from './styles';
 
 const Login: React.FC = () => {

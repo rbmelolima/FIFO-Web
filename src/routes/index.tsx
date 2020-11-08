@@ -5,10 +5,11 @@ import UserProvider from '../context/userContext';
 
 import Login from '../pages/login';
 import Register from '../pages/register';
+import ChooseQueues from '../pages/chooseQueues';
 
 export default function Routes () {
   return (
-    <UserProvider>     
+    <UserProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
@@ -21,6 +22,10 @@ export default function Routes () {
 
           <Route path="/cadastrar">
             <Register />
+          </Route>
+
+          <Route path="/filas">
+            <ChooseQueues />
           </Route>
         </Switch>
       </BrowserRouter>
