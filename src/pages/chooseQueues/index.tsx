@@ -20,6 +20,7 @@ const ChooseQueues: React.FC = () => {
           <CardQueue name="Massagem" url={ Icons.Massagem } click={ () => { } } />
         </Grid>
       </Main>
+
     </PageChooseQueue>
   );
 }
