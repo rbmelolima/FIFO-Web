@@ -3,37 +3,39 @@ import React from 'react';
 import logo from '../../assets/logo/logo.svg';
 import entry from '../../assets/icons/entry.svg';
 
-import './style.css';
+import { CTA, Description, Form, Main, Navbar, PageLogin, Title } from './styles';
 
 const Login: React.FC = () => {
   return (
-    <div id="page-login">
-      <nav className="menu">
+    <PageLogin>
+      <Navbar>
         <img src={ logo } alt="logo" />
-      </nav>
+      </Navbar>
 
-      <main>
+      <Main>
         <div className="container">
-          <h1>Gerencie sua diversão </h1>
-          <p> O Fifo gestão de fila virtual tem a capacidade de organizar e controlar sua posição na fila de forma rápida e prática.</p>
+          <Title>Gerencie sua diversão </Title>
+          <Description>
+            O Fifo gestão de fila virtual tem a capacidade de organizar e controlar sua posição na fila de forma rápida e prática.
+          </Description>
 
-          <form action="">
-            <h4>Vamos começar</h4>
+          <Form>
+            <CTA>Vamos começar</CTA>
 
             <div className="gradient-box-input">
               <input type="text" placeholder="Email: " />
             </div>
 
             <div className="gradient-box-button">
-              <button className="entry">Entrar</button>
+              <button>Entrar</button>
             </div>
 
             <img src={ entry } alt="" className="entry-img" />
 
-          </form>
+          </Form>
         </div>
-      </main>
-    </div>
+      </Main>
+    </PageLogin>
   )
 };
 
