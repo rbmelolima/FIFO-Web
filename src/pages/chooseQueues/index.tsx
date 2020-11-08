@@ -1,17 +1,26 @@
 import React from 'react';
-import AvatarNavbar from '../../components/avatarNavbar';
 import CardQueue from '../../components/cardQueue';
-
-import PingPongIcon from '../../assets/icons/pingpong.svg';
-//import { Container } from './styles';
+import * as Icons from './assets';
+import { PageChooseQueue, Grid, Main } from './styles';
 
 const ChooseQueues: React.FC = () => {
   return (
-    <div className="">
-      <AvatarNavbar name="Roger Bernardo" url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4" />
-      <CardQueue name='Ping Pong' url={PingPongIcon} />
+    <PageChooseQueue>
+      <Main>
+        <h2>Entrar na fila</h2>
 
-    </div>
+        <Grid>
+          <CardQueue name="Xadrez" url={ Icons.Xadrez } click={ () => { } } />
+          <CardQueue name="Breanking Bad" url={ Icons.Breankingbad } click={ () => { } } />
+          <CardQueue name="Ping Pong" url={ Icons.Pingpong } click={ () => { } } />
+          <CardQueue name="Resistence" url={ Icons.Resistance } click={ () => { } } />
+          <CardQueue name="Sinuca" url={ Icons.Sinuca } click={ () => { } } />
+          <CardQueue name="Uno" url={ Icons.Uno } click={ () => { } } />
+          <CardQueue name="Playstation" url={ Icons.Videogame } click={ () => { } } />
+          <CardQueue name="Massagem" url={ Icons.Massagem } click={ () => { } } />
+        </Grid>
+      </Main>
+    </PageChooseQueue>
   );
 }
 
