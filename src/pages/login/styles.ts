@@ -9,12 +9,13 @@ export const PageLogin = styled.div`
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: var(--color-background-dark);
+  
+  width: 100%;
+  height: 100vh;
 
   @media screen and (min-width: 1200px) {  
     background-image: url('${doodleDesktop}');
     background-position: center -500px;
-    background-size: 100%;
-    background-repeat: no-repeat;  
   }
 
   .container {
@@ -61,9 +62,8 @@ export const PageLogin = styled.div`
 `;
 
 export const Main = styled.main`  
-  width: 100%;
-  height: 100vh;
-  padding: 32px 16px;
+  width: 100%;  
+  padding: 64px 16px;
   text-align: center;  
   
   @media screen and (min-width: 768px) {
@@ -247,7 +247,7 @@ export const Form = styled.form`
   }
 
   .entry-img {
-    margin-top: 8px;
+    margin-top: 12px;
   }
 
   @media screen and (min-width: 768px) {

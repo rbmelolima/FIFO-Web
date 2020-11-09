@@ -1,50 +1,45 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
   border-radius: 10px;
-  border: 1px solid #F4994D; 
-  width: 184.58px;
-  height: 181.22px;
+  border: 1px solid var(--color-primary-normal); 
 
+  width: 100%;
+  height: 100%;
 
-  img{
-    width: 98px;
-    height: 108px;
+  padding: 8px;
+  margin: 0 auto;
+
+  img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
   }
 
-  span{
-    font-family: Roboto;
+  span {
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 14px;
     text-align: center;
     color: #FFFFFF;
-
   }
 
-  @media screen and (min-width: 768px) {
-    width: 114px;
-    height: 110px;
-
-    img{
-      width: 57px;
-      height: 52px;
+  @media screen and (min-width: 576px) {
+    img {
+      width: 108px;
+      height: 108px;
     }
-    span{
-      font-size: 14px;
+
+    span {
+      font-size: 24px;
     }
   }
-
-
 `;
