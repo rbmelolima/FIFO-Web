@@ -1,78 +1,82 @@
 import React from 'react';
 import CardQueue from '../../components/cardQueue';
-<<<<<<< HEAD
-import ChoiceButton from '../../components/choiceButton';
-
-import PingPongIcon from '../../assets/icons/pingpong.svg';
-//import { Container } from './styles';
-
-const ChooseQueues: React.FC = () => {
-  return (
-    <div className="">
-
-
-
-=======
 import * as Icons from './assets';
-import { PageChooseQueue, Grid, Main } from './styles';
+import { WrapperButton, PageChooseQueue, Grid, Main } from './styles';
 
 const ChooseQueues: React.FC = () => {
   return (
     <PageChooseQueue>
       <Main>
-        <h2>Entrar na fila</h2>
+        <h2 className="title-choice-button">Escolha a função</h2>
+        <WrapperButton>
 
+          <div className="div-wrapper-button">
+            <div className="box-button active-box-button">
+              <button>
+                <h4>Serviços</h4>
+              </button>
+            </div>
+
+            <div className="box-button">
+              <button>
+                <h4>Minha Fila</h4>
+              </button>
+            </div>
+
+          </div>
+
+        </WrapperButton>
+        <h2>Entrar na fila</h2>
         <Grid>
           <CardQueue
             name="Xadrez"
-            url={ Icons.Xadrez }
-            click={ () => { } }
+            url={Icons.Xadrez}
+            click={() => { }}
           />
 
           <CardQueue
             name="Breanking Bad"
-            url={ Icons.Breankingbad }
-            click={ () => { } }
+            url={Icons.Breankingbad}
+            click={() => { }}
           />
 
           <CardQueue
             name="Ping Pong"
-            url={ Icons.Pingpong }
-            click={ () => { } }
+            url={Icons.Pingpong}
+            click={() => { }}
           />
 
           <CardQueue
             name="Resistence"
-            url={ Icons.Resistance }
-            click={ () => { } }
+            url={Icons.Resistance}
+            click={() => { }}
           />
 
           <CardQueue
             name="Sinuca"
-            url={ Icons.Sinuca }
-            click={ () => { } }
+            url={Icons.Sinuca}
+            click={() => { }}
           />
 
           <CardQueue
             name="Uno"
-            url={ Icons.Uno }
-            click={ () => { } }
+            url={Icons.Uno}
+            click={() => { }}
           />
 
           <CardQueue
             name="Playstation"
-            url={ Icons.Videogame }
-            click={ () => { } }
+            url={Icons.Videogame}
+            click={() => { }}
           />
 
           <CardQueue
             name="Massagem"
-            url={ Icons.Massagem }
-            click={ () => { } }
+            url={Icons.Massagem}
+            click={() => { }}
           />
         </Grid>
       </Main>
->>>>>>> 21dbc243824dae8836a01195e72a4cc2219874d7
 
     </PageChooseQueue>
   );
