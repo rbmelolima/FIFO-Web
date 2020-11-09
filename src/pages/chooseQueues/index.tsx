@@ -1,14 +1,49 @@
 import React from 'react';
 import CardQueue from '../../components/cardQueue';
 import * as Icons from './assets';
-import { PageChooseQueue, Grid, Main } from './styles';
+import { WrapperButton, PageChooseQueue, Grid, Main, TitleChoiceButton, Navigation } from './styles';
+import AvatarNavbar from '../../components/avatarNavbar';
 
 const ChooseQueues: React.FC = () => {
   return (
     <PageChooseQueue>
-      <Main>
-        <h2>Entrar na fila</h2>
+      <Navigation>
+        <AvatarNavbar name="Roger" url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4"/>
 
+        <div className="links">
+          <a href="/">FC-Santos</a>
+          <a href="/">FC-São Paulo</a>
+        </div>
+
+        <button>
+          <img src={Icons.menu} alt=""/>
+        </button>
+      </Navigation>
+
+      <Main>
+        <TitleChoiceButton> Escolha a função </TitleChoiceButton>
+
+        <WrapperButton>
+          <div className="div-wrapper-button">
+            <div className="box-button active-box-button">
+              <button>
+                <h4>Serviços</h4>
+              </button>
+            </div>
+
+            <div className="box-button">
+              <button>
+                <h4>Minha Fila</h4>
+              </button>
+            </div>
+          </div>
+        </WrapperButton>
+
+        <div className="imgWrapperButton">
+          <img src={ Icons.entry } alt="" />
+        </div>
+
+        <h2>Entrar na fila</h2>
         <Grid>
           <CardQueue
             name="Xadrez"
