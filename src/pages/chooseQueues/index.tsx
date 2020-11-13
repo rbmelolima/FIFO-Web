@@ -8,7 +8,7 @@ const ChooseQueues: React.FC = () => {
   return (
     <PageChooseQueue>
       <Navigation>
-        <AvatarNavbar name="Roger" url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4"/>
+        <AvatarNavbar name="Roger" url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4" />
 
         <div className="links">
           <a href="/">FC-Santos</a>
@@ -16,7 +16,7 @@ const ChooseQueues: React.FC = () => {
         </div>
 
         <button>
-          <img src={Icons.menu} alt=""/>
+          <img src={ Icons.ButtonMenu } alt="" />
         </button>
       </Navigation>
 
@@ -38,10 +38,6 @@ const ChooseQueues: React.FC = () => {
             </div>
           </div>
         </WrapperButton>
-
-        <div className="imgWrapperButton">
-          <img src={ Icons.entry } alt="" />
-        </div>
 
         <h2>Entrar na fila</h2>
         <Grid>
