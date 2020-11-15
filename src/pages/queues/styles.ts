@@ -54,6 +54,10 @@ export const Main = styled.main`
   max-width: fit-content;
   width: 100%;
   margin: 0 auto;
+
+  column-count: 2;
+  column-gap: 100px;
+  column-rule: 1px solid #C07744;
 `;
 
 export const ChooseQueue = styled.section`

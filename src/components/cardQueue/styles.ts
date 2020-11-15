@@ -5,17 +5,18 @@ export const Container = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-color: transparent;
-  cursor: pointer;
+  background-color: var(--color-background);
   outline: none;
   border-radius: 10px;
-  border: 2px solid var(--color-secundary); 
-
+  border: 1px solid transparent;
+  
+  &.default {
+    border-color: var(--color-secundary);
+  }
   
   width: 100%;
+  height: 100%;
   padding: 12px;
-
 
   img {    
     margin-bottom: 12px;
@@ -35,4 +36,15 @@ export const Container = styled.button`
       width: 100px;
     }
   }
+`;
+
+export const Gradiente = styled.div`
+  &.active {
+    background-image: linear-gradient(180deg, #A8A8D0 0%, #FE662E 100%);
+    
+  } 
+
+  border-radius: 10px;
+  width: 100%;
+  padding: 4px;
 `;

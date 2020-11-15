@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardQueue from '../../components/cardQueue';
 import * as Icons from './assets';
 import * as styles from './styles';
@@ -7,6 +7,8 @@ import ListtileQueue from '../../components/listtileQueue';
 import { ButtonPrimary } from '../../styles/buttons';
 
 function Queues () {
+  const [ selected, setSelected ] = useState<String>('');
+
   return (
     <>
       <styles.Navbar>
@@ -21,69 +23,104 @@ function Queues () {
 
       <styles.Page>
         <styles.Main>
+          
           <styles.ChooseQueue>
             <h5> Escolha o serviço e entre na fila</h5>
             <styles.Grid>
               <CardQueue
                 name="Playstation"
+                active={ selected === 'Playstation' && true }
                 url={ Icons.Videogame }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Playstation');
+                } }
+              />
               <CardQueue
                 name="Sinuca"
+                active={ selected === 'Sinuca' && true }
                 url={ Icons.Sinuca }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Sinuca');
+                } }
+              />
               <CardQueue
                 name="Ping Pong"
+                active={ selected === 'Ping Pong' && true }
                 url={ Icons.Pingpong }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Ping Pong');
+                } }
+              />
               <CardQueue
                 name="Xadrez"
+                active={ selected === 'Xadrez' && true }
                 url={ Icons.Xadrez }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Xadrez');
+                } }
+              />
               <CardQueue
                 name="Breanking Bad"
+                active={ selected === 'Breanking Bad' && true }
                 url={ Icons.Breankingbad }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Breanking Bad');
+                } }
+              />
               <CardQueue
                 name="Resistence"
+                active={ selected === 'Resistence' && true }
                 url={ Icons.Resistance }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Resistence');
+                } }
+              />
               <CardQueue
                 name="Uno"
+                active={ selected === 'Uno' && true }
                 url={ Icons.Uno }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Uno');
+                } }
+              />
               <CardQueue
                 name="Banco imobiliário"
+                active={ selected === 'Banco imobiliário' && true }
                 url={ Icons.BancoImobiliario }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Banco imobiliário');
+                } }
+              />
               <CardQueue
                 name="Zumbie City"
+                active={ selected === 'Zumbie City' && true }
                 url={ Icons.Zumbie }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Zumbie City');
+                } }
+              />
               <CardQueue
                 name="Detetive"
+                active={ selected === 'Detetive' && true }
                 url={ Icons.Detetive }
-                click={ () => { } } />
-
+                click={ () => {
+                  setSelected('Detetive');
+                } }
+              />
               <CardQueue
                 name="Massagem"
+                active={ selected === 'Massagem' && true }
                 url={ Icons.Massagem }
-                click={ () => { } } />
+                click={ () => {
+                  setSelected('Massagem');
+                } }
+              />
             </styles.Grid>
           </styles.ChooseQueue>
 
           <styles.QueueStatus>
-            <h2>Fila: Nome do jogo</h2>
-            
+            <h2>Fila: { selected }</h2>
+
             <ListtileQueue
               avatar="https://avatars3.githubusercontent.com/u/48859060?s=460&u=5ce755298e920f74f1f4ffc4ef5809ff1c56890d&v=4"
               name="rbmelolima"
