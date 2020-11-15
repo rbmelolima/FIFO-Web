@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import UserProvider from '../entity/user/context';
+import UserProvider from '../entities/user/context';
 
 import ChooseQueues from '../pages/chooseQueues';
 import Login from '../pages/login';
