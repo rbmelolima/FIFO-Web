@@ -2,6 +2,7 @@ import React from 'react';
 import * as styles from './styles';
 
 import Logo from '../../assets/logo/LOGO.svg';
+import { ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
 
 const Login: React.FC = () => {
 
@@ -9,9 +10,9 @@ const Login: React.FC = () => {
     <>
       <styles.Navbar>
         <img src={ Logo } alt="Fila" />
-        <styles.ButtonSecondary>
+        <ButtonSecondary>
           Como funciona
-        </styles.ButtonSecondary>
+        </ButtonSecondary>
       </styles.Navbar>
 
       <styles.PageLogin>
@@ -25,9 +26,9 @@ const Login: React.FC = () => {
 
           <input type="text" placeholder="email" />
 
-          <styles.ButtonPrimary>
+          <ButtonPrimary>
             Entrar
-          </styles.ButtonPrimary>
+          </ButtonPrimary>
         </styles.Main>
 
       </styles.PageLogin>

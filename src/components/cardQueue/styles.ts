@@ -19,8 +19,7 @@ export const Container = styled.button`
 
   img {    
     margin-bottom: 12px;
-    width: 100px;
-    height: 100px;
+    width: 64px;    
   }
 
   span {
@@ -29,5 +28,11 @@ export const Container = styled.button`
     font-size: 16px;
     text-align: center;
     color: #FFFFFF;
+  }
+
+  @media screen and (min-width: 576px) {
+    img {
+      width: 100px;
+    }
   }
 `;

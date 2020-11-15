@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);  
@@ -63,5 +62,32 @@ export const ChooseQueue = styled.section`
     font-weight: bold;
     color: #fff;
     margin-bottom: 24px;
+  }
+`;
+
+export const QueueStatus = styled.section`
+  margin-top: 64px;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  footer {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-top: 16px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  button {
+    margin: 0 auto;
+    width: 220px;
   }
 `;
