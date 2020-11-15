@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
+import { FiChevronDown } from 'react-icons/fi';
 
 interface props {
   url: string,
@@ -10,7 +11,10 @@ const AvatarNavbar: React.FC<props> = ({ url, name }) => {
   return (
     <Container>
       <img src={ url } alt={ `avatar-${name}` } />
-      <h6>{ name }</h6>
+      <div>
+        <strong>{ `Olá ${name}` }</strong>
+        <span>Filial de Santos <FiChevronDown size={ 16 } color={'#FE662E' } /></span>
+      </div>
     </Container>
   );
 }

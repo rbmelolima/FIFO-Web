@@ -10,36 +10,24 @@ export const Container = styled.button`
   cursor: pointer;
   outline: none;
   border-radius: 10px;
-  border: 1px solid var(--color-primary-normal); 
+  border: 2px solid var(--color-secundary); 
 
+  
   width: 100%;
-  height: 100%;
+  padding: 12px;
 
-  padding: 8px;
-  margin: 0 auto;
 
-  img {
-    width: 60px;
-    height: 60px;
+  img {    
     margin-bottom: 12px;
+    width: 100px;
+    height: 100px;
   }
 
   span {
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     color: #FFFFFF;
-  }
-
-  @media screen and (min-width: 576px) {
-    img {
-      width: 108px;
-      height: 108px;
-    }
-
-    span {
-      font-size: 24px;
-    }
   }
 `;

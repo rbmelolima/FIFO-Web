@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserProvider from '../entities/user/context';
 
-import ChooseQueues from '../pages/chooseQueues';
+import Queues from '../pages/queues';
 import Login from '../pages/login';
 import Register from '../pages/register';
 
@@ -24,7 +24,7 @@ export default function Routes () {
           </Route>
 
           <Route path="/filas">
-            <ChooseQueues />
+            <Queues />
           </Route>
         </Switch>
       </BrowserRouter>

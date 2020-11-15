@@ -6,6 +6,10 @@ import Massagem from '../../assets/icons/MASSAGEM.svg';
 import Pingpong from '../../assets/icons/PINGPONG.svg';
 import Resistance from '../../assets/icons/RESISTENCE.svg';
 import Sinuca from '../../assets/icons/SINUCA.svg';
+import Detetive from '../../assets/icons/DETETIVE.svg';
+import BancoImobiliario from '../../assets/icons/DINHEIRO.svg';
+import Zumbie from '../../assets/icons/ZUMBIE.svg';
+
 import ButtonMenu from '../../assets/icons/ButtonMenu.svg';
 
 export {
@@ -17,5 +21,8 @@ export {
   Pingpong,
   Resistance,
   Sinuca,
-  ButtonMenu
+  ButtonMenu,
+  Detetive,
+  BancoImobiliario,
+  Zumbie
 } 
