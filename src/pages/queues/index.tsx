@@ -6,6 +6,7 @@ import * as styles from './styles';
 import ListtileQueue from '../../components/listtileQueue';
 import { ButtonPrimary } from '../../styles/buttons';
 import Menu from '../../components/menu';
+import NavButton from '../../components/navButton';
 
 function Queues() {
   const [selected, setSelected] = useState<String>('');
@@ -14,9 +15,7 @@ function Queues() {
     <>
       <styles.Navbar>
 
-        <button id="btn-menu">
-          <img src={Icons.ButtonMenu} alt="" />
-        </button>
+        <NavButton />
 
       </styles.Navbar>
       <Menu />
