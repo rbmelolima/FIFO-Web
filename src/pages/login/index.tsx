@@ -3,13 +3,14 @@ import * as styles from './styles';
 
 import Logo from '../../assets/logo/LOGO.svg';
 import { ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
+import Input from '../../components/UI/input/index';
 
 const Login: React.FC = () => {
 
   return (
     <>
       <styles.Navbar>
-        <img src={ Logo } alt="Fila" />
+        <img src={Logo} alt="Fila" />
         <ButtonSecondary>
           Como funciona
         </ButtonSecondary>
@@ -24,7 +25,7 @@ const Login: React.FC = () => {
 
           <h2>Vamos começar!</h2>
 
-          <input type="text" placeholder="email" />
+          <Input label="Email" name="email-input" />
 
           <ButtonPrimary>
             Entrar
