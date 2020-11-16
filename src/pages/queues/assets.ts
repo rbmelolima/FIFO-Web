@@ -1,14 +1,14 @@
-import Xadrez from '../../assets/icons/XADREZ.svg';
-import Videogame from '../../assets/icons/VIDEOGAME.svg';
-import Uno from '../../assets/icons/UNO.svg';
-import Breankingbad from '../../assets/icons/BREAKINGBAD.svg';
-import Massagem from '../../assets/icons/MASSAGEM.svg';
-import Pingpong from '../../assets/icons/PINGPONG.svg';
-import Resistance from '../../assets/icons/RESISTENCE.svg';
-import Sinuca from '../../assets/icons/SINUCA.svg';
-import Detetive from '../../assets/icons/DETETIVE.svg';
-import BancoImobiliario from '../../assets/icons/DINHEIRO.svg';
-import Zumbie from '../../assets/icons/ZUMBIE.svg';
+import Xadrez from '../../assets/icons/xadrez.svg';
+import Videogame from '../../assets/icons/videogame.svg';
+import Uno from '../../assets/icons/uno.svg';
+import Breankingbad from '../../assets/icons/breakingbad.svg';
+import Massagem from '../../assets/icons/massagem.svg';
+import Pingpong from '../../assets/icons/pingpong.svg';
+import Resistance from '../../assets/icons/resistence.svg';
+import Sinuca from '../../assets/icons/sinuca.svg';
+import Detetive from '../../assets/icons/detetive.svg';
+import BancoImobiliario from '../../assets/icons/dinheiro.svg';
+import Zumbie from '../../assets/icons/zumbie.svg';
 
 import ButtonMenu from '../../assets/icons/ButtonMenu.svg';
 
