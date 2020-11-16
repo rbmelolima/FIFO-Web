@@ -6,8 +6,8 @@ export const Container = styled.div`
 
   img {
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     margin-right: 8px;
   }
 
@@ -19,8 +19,8 @@ export const Container = styled.div`
   }
 
   span {
-    font-size: 12px;
-    color: #fff;
+    font-size: 17.5px;
+    color: black;
     display: flex;
     align-items: center;
 

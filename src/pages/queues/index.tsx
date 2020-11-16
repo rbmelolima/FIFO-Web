@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import CardQueue from '../../components/cardQueue';
 import * as Icons from './assets';
 import * as styles from './styles';
-import AvatarNavbar from '../../components/avatar';
+
 import ListtileQueue from '../../components/listtileQueue';
 import { ButtonPrimary } from '../../styles/buttons';
+import Menu from '../../components/menu';
 
 function Queues() {
   const [selected, setSelected] = useState<String>('');
@@ -12,15 +13,13 @@ function Queues() {
   return (
     <>
       <styles.Navbar>
-        <AvatarNavbar
-          name="Roger"
-          url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4" />
 
         <button id="btn-menu">
           <img src={Icons.ButtonMenu} alt="" />
         </button>
-      </styles.Navbar>
 
+      </styles.Navbar>
+      <Menu />
       <styles.Page>
         <styles.Main>
 

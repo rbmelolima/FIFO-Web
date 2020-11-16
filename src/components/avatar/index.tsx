@@ -10,10 +10,10 @@ interface props {
 const AvatarNavbar: React.FC<props> = ({ url, name }) => {
   return (
     <Container>
-      <img src={ url } alt={ `avatar-${name}` } />
+      <img src={url} alt={`avatar-${name}`} />
       <div>
-        <strong>{ `Olá ${name}` }</strong>
-        <span>Filial de Santos <FiChevronDown size={ 16 } color={'#FE662E' } /></span>
+        <strong>{`Bem vindo ${name}`}</strong>
+        <span>Filial de Santos <FiChevronDown size={16} color={'#FE662E'} /></span>
       </div>
     </Container>
   );
