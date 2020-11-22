@@ -6,8 +6,8 @@ export const Container = styled.div`
 
   img {
     border-radius: 100%;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     margin-right: 8px;
   }
 
@@ -19,10 +19,11 @@ export const Container = styled.div`
   }
 
   span {
-    font-size: 17.5px;
+    font-size: 14px;
     color: black;
     display: flex;
     align-items: center;
+    color: #fff;
 
     svg {
       margin-left: 8px;
