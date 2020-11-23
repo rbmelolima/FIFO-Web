@@ -14,9 +14,9 @@ export const Container = styled.button`
     border-color: var(--color-secundary);
   }
   
-  width: 100%;
+  max-width: 100%;
   height: 100%;
-  padding: 12px;
+  padding: 12px 25px 12px 25px;
 
   img {    
     margin-bottom: 12px;
@@ -45,6 +45,6 @@ export const Gradiente = styled.div`
   } 
 
   border-radius: 10px;
-  width: 100%;
+  max-width: 100%;
   padding: 4px;
 `;

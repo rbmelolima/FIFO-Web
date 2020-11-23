@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
+
+export const GridContainer = styled.div`
+
+`;
+
 export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);  
-  gap: 16px;
+display: flex;
+flex-wrap: wrap;
 
-  @media screen and (min-width: 465px) {
-    grid-template-columns: repeat(3, 1fr);  
-  }
-
-  @media screen and (min-width: 748px) {
-    grid-template-columns: repeat(4, 1fr);  
-  }
+  
   
 `;
 
@@ -51,16 +49,23 @@ export const Page = styled.div`
 `;
 
 export const Main = styled.main`
-  max-width: fit-content;
-  width: 100%;
-  margin: 0 auto;
-
-  column-count: 2;
-  column-gap: 100px;
-  column-rule: 1px solid #C07744;
+  display:flex;
+  flex-direction: row;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;;
+  }
+  
+  
 `;
 
 export const ChooseQueue = styled.section`
+  min-width:40%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+ 
   h5 {
     font-size: 24px;
     font-weight: bold;
@@ -70,10 +75,12 @@ export const ChooseQueue = styled.section`
 `;
 
 export const QueueStatus = styled.section`
-  margin-top: 64px;
-  width: 100%;
-  text-align: center;
-
+  min-width:45%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #C07744;
+  padding-left: 30px;
+  display:none;
   h2 {
     font-size: 24px;
     text-align: center;
