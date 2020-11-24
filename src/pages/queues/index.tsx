@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import CardQueue from '../../components/cardQueue';
+import ListtileQueue from '../../components/listtileQueue';
+import { ButtonPrimary } from '../../styles/buttons';
 import * as Icons from './assets';
 import * as styles from './styles';
 
-import ListtileQueue from '../../components/listtileQueue';
-import { ButtonPrimary } from '../../styles/buttons';
+
+
 import Menu from '../../components/menu';
 import AvatarNavbar from '../../components/avatar';
+
 
 function Queues() {
   const [selected, setSelected] = useState<String>('');
   const [menuIsShow, setMenu] = useState<boolean>(false);
+  const [filaIsShow, setFila] = useState<boolean>(false);
 
   return (
     <>
@@ -43,6 +47,7 @@ function Queues() {
                   url={Icons.Videogame}
                   click={() => {
                     setSelected('Playstation');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -51,6 +56,7 @@ function Queues() {
                   url={Icons.Sinuca}
                   click={() => {
                     setSelected('Sinuca');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -59,6 +65,7 @@ function Queues() {
                   url={Icons.Pingpong}
                   click={() => {
                     setSelected('Ping Pong');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -67,6 +74,7 @@ function Queues() {
                   url={Icons.Xadrez}
                   click={() => {
                     setSelected('Xadrez');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -75,6 +83,7 @@ function Queues() {
                   url={Icons.Breankingbad}
                   click={() => {
                     setSelected('Breanking Bad');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -83,6 +92,7 @@ function Queues() {
                   url={Icons.Resistance}
                   click={() => {
                     setSelected('Resistence');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -91,6 +101,7 @@ function Queues() {
                   url={Icons.Uno}
                   click={() => {
                     setSelected('Uno');
+                    setFila(true);
                   }}
                 />
 
@@ -100,6 +111,7 @@ function Queues() {
                   url={Icons.Zumbie}
                   click={() => {
                     setSelected('Zumbie City');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -108,6 +120,7 @@ function Queues() {
                   url={Icons.Detetive}
                   click={() => {
                     setSelected('Detetive');
+                    setFila(true);
                   }}
                 />
                 <CardQueue
@@ -116,6 +129,7 @@ function Queues() {
                   url={Icons.Massagem}
                   click={() => {
                     setSelected('Massagem');
+                    setFila(true);
                   }}
                 />
               </styles.Grid>
@@ -123,7 +137,8 @@ function Queues() {
 
           </styles.ChooseQueue>
 
-          <styles.QueueStatus>
+
+          <styles.QueueStatus style={{ display: filaIsShow ? 'flex' : 'none' }}>
             <h2>Fila: {selected}</h2>
 
             <ListtileQueue
@@ -155,6 +170,7 @@ function Queues() {
             <ButtonPrimary>
               Entrar na fila
             </ButtonPrimary>
+
           </styles.QueueStatus>
 
         </styles.Main>

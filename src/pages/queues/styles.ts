@@ -78,9 +78,10 @@ export const QueueStatus = styled.section`
   min-width:45%;
   display: flex;
   flex-direction: column;
+ 
   border-left: 1px solid #C07744;
   padding-left: 30px;
-  display:none;
+ 
   h2 {
     font-size: 24px;
     text-align: center;
