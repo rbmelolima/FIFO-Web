@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import AvatarNavbar from '../../components/avatar';
 
 import { Container, BtnClose } from './styles';
@@ -22,13 +23,13 @@ function Menu (props: props) {
 
       </div>
       <div className="menu-option menu-option-active-container">
-        <a className="menu-option-active">Início</a>
+        <Link to="/" className="menu-option-active">Início</Link>
       </div>
       <div className="menu-option">
-        <a>Editar Perfil</a>
+        <Link to="/">Editar Perfil</Link>
       </div>
       <div className="menu-option">
-        <a>Adicionar Serviço</a>
+        <Link to="/">Adicionar Serviço</Link>
       </div>
     </Container>
   );
