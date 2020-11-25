@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
 
-export const GridContainer = styled.div`
-
-`;
+export const GridContainer = styled.div``;
 
 export const Grid = styled.div`
-display: flex;
-flex-wrap: wrap;
-
-  
-  
+  display: flex;
+  flex-wrap: wrap; 
 `;
 
 export const Navbar = styled.nav`
@@ -49,22 +44,20 @@ export const Page = styled.div`
 `;
 
 export const Main = styled.main`
-  display:flex;
+  display: flex;
   flex-direction: row;
+
   @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;;
-  }
-  
-  
+    flex-direction: column-reverse;
+  }   
 `;
 
 export const ChooseQueue = styled.section`
-  min-width:40%;
-  display:flex;
+  min-width: 40%;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: center;  
  
   h5 {
     font-size: 24px;
@@ -75,7 +68,7 @@ export const ChooseQueue = styled.section`
 `;
 
 export const QueueStatus = styled.section`
-  min-width:45%;
+  min-width: 45%;
   display: flex;
   flex-direction: column;
  
