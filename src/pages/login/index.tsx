@@ -18,14 +18,17 @@ const Login: React.FC = () => {
 
       <styles.PageLogin>
         <styles.Main>
-          <h1>  Gerencie sua diversão </h1>
+          <h1>Gerencie sua diversão</h1>
           <p>
             O Fila virtual tem a capacidade de organizar e controlar sua posição de forma rápida e prática.
           </p>
 
           <h2>Vamos começar!</h2>
 
-          <Input label="Email" name="email-input" />
+          <Input 
+            placeholder="Digite seu email"
+            label="Email"            
+          />
 
           <ButtonPrimary>
             Entrar

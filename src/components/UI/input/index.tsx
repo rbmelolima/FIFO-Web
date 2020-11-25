@@ -1,20 +1,16 @@
-import React, { InputHTMLAttributes } from 'react';
-import { Container } from './styles';
+import { TextFieldProps } from '@material-ui/core/TextField/TextField';
+import React from 'react';
+import { InputMaterial } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  name: string;
-}
-
-const Input: React.FC<InputProps> = ({ label, name, ...rest }) => {
+const Input: React.FC<TextFieldProps> = ({ label, ...rest }) => {
   return (
-    <Container>
-      <div className="material-textfield">
-        <input type="text" id={ name } { ...rest } />
-        <label htmlFor={ name }> { label } </label>
-      </div>
-    </Container>
+    <InputMaterial
+      { ...rest }      
+      label={label}
+      variant="outlined"
+    />
   );
 };
 
 export default Input;
+
