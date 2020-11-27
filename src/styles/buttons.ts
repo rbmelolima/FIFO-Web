@@ -30,7 +30,7 @@ export const ButtonPrimary = styled.button`
   outline: none;
   border: none;
   border-radius: 10px;
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in;
 
   &:hover, &active {
     background-color: #FF4F0E;

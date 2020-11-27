@@ -14,4 +14,8 @@ export const InputMaterial  = styled(TextField)`
     font-size: 14px;
     margin: 0;
   }
+
+  & + div:hover {
+    border-color: initial;
+  }
 `;

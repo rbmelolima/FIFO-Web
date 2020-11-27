@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import doodleDesktop from '../../assets/doodles/doodle-desktop.svg';
+import { InputMaterial } from '../../components/UI/input/styles';
 
 export const PageLogin = styled.div`
   background-image: url('${doodleDesktop}');
@@ -7,20 +8,18 @@ export const PageLogin = styled.div`
   background-repeat: no-repeat;
   background-color: var(--color-background);
   background-size: contain;
+  background-size: 420px;    
   
-  padding: 32px;  
+  padding: 64px 32px; 
   width: 100%;
-  min-height: 90vh;  
+  min-height: 120vh;
 
-  @media screen and (min-width: 748px){
-    background-size: 40%;
-    display: flex;
-    align-items: center;
-    padding: 64px 32px;
-  }
+  @media screen and (min-height: 800px) {
+    min-height: 90vh;
+  }   
 
   @media screen and (min-width: 1200px){
-    background-size: 50%;
+    background-size: 60%;
   }
 `;
 
@@ -53,11 +52,11 @@ export const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
 
-  @media screen and (min-width: 1200px){
-    max-width: 800px;
+  @media screen and (min-width: 748px){
+    max-width: 900px;
     margin-right: unset;
     margin-left: auto;
   }
@@ -90,8 +89,7 @@ export const Main = styled.main`
     margin-bottom: 16px;
   }
 
-  input {
-    margin-bottom: 16px;
+  ${InputMaterial} {
     max-width: 460px;
     width: 100%;
     margin-left: auto;
@@ -114,6 +112,5 @@ export const Main = styled.main`
       font-size: 18px;
     }
   }
-
 `;
 
