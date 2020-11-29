@@ -3,10 +3,11 @@ import Logo from '../../assets/logo/logo.svg';
 import IconBtnMenu from '../../assets/icons/ButtonMenu.svg';
 import { ButtonMenu, ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
 import Input from '../../components/UI/input/index';
-import { Main, Navbar, PageLogin } from './styles';
+import { Main, PageLogin } from './styles';
 import { useHistory } from 'react-router-dom';
-import MenuHamburguer from '../../components/menuHamburguer';
-import { BtnListTile, Separator, Welcome } from '../../components/menuHamburguer/styles';
+import { BtnListTile, Separator, Welcome } from '../../components/menu/styles';
+import Navbar from '../../components/navbar';
+import Menu from '../../components/menu';
 
 const Index: React.FC = () => {
   const history = useHistory();
@@ -14,7 +15,7 @@ const Index: React.FC = () => {
   const [ openMenu, setOpenMenu ] = useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Navbar>
         <img src={ Logo } alt="Fila" className="logo" />
 
@@ -29,7 +30,7 @@ const Index: React.FC = () => {
         </div>
       </Navbar>
 
-      <MenuHamburguer visible={ openMenu } onClose={ () => setOpenMenu(false) }>
+      <Menu visible={ openMenu } onClose={ () => setOpenMenu(false) }>
         <Welcome>
           <h4>Bem vindo!</h4>
           <p>
@@ -38,15 +39,19 @@ const Index: React.FC = () => {
         </Welcome>
 
         <Separator />
+
         <BtnListTile>
           Versão escura
         </BtnListTile>
+
         <Separator />
+
         <BtnListTile>
           Versão clara
         </BtnListTile>
+        
         <Separator />
-      </MenuHamburguer>
+      </Menu>
 
       <PageLogin>
         <Main>
@@ -66,7 +71,7 @@ const Index: React.FC = () => {
           </form>
         </Main>
       </PageLogin>
-    </>
+    </React.Fragment>
   )
 };
 

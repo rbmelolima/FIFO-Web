@@ -26,29 +26,6 @@ export const PageLogin = styled.div`
   }
 `;
 
-export const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  gap: 16px;
-  background-color: var(--color-background);
-  border-bottom: 1px solid #824A21;
-
-  img.logo {
-    width: 80px;
-    height: auto;
-  }
-
-  @media screen and (min-width: 748px) {
-    padding: 16px 32px;    
-  }
-
-  .group button:first-child{     
-    margin-right: 32px;
-  }
-`;
-
 export const Main = styled.main`
   display: flex;
   flex-direction: column;

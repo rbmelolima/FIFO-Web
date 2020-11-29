@@ -1,36 +1,24 @@
 import React from 'react';
 import { FiX } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import AvatarNavbar from '../../components/avatar';
+import { Container, Close, Relative } from './styles';
 
-import { Container, BtnClose } from './styles';
-
-type props = {
-  isShow: boolean,
-  close: () => void
+type params = {
+  visible: boolean;
+  onClose: () => void;
 }
 
-function Menu (props: props) {
+const Menu: React.FC<params> = ({ onClose, visible, children }) => {
   return (
-    <Container style={ { display: props.isShow ? 'block' : 'none' } }>
-      <BtnClose>
-        <FiX color={ '#36357E' } size={ 24 } onClick={ () => props.close() } />
-      </BtnClose>
-      <div className="menu-avatar">
-        <AvatarNavbar
-          name="Roger"
-          url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4" />
+    <Container style={ { display: visible ? 'block' : 'none' } }>
+      <Relative>
+        <Close onClick={ onClose }>
+          <FiX size={ 24 } />
+        </Close>
+      </Relative>
 
-      </div>
-      <div className="menu-option menu-option-active-container">
-        <Link to="/" className="menu-option-active">Início</Link>
-      </div>
-      <div className="menu-option">
-        <Link to="/">Editar Perfil</Link>
-      </div>
-      <div className="menu-option">
-        <Link to="/">Adicionar Serviço</Link>
-      </div>
+      {
+        children
+      }
     </Container>
   );
 }

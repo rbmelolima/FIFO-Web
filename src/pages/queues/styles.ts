@@ -1,39 +1,10 @@
 import styled from 'styled-components';
 
-
 export const GridContainer = styled.div``;
 
 export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap; 
-`;
-
-export const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  gap: 16px;
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-primary-light);
-
-  @media screen and (min-width: 748px) {
-    padding: 16px 32px;
-  }
-
-  button#btn-menu {
-    outline: none;
-    border: none;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 24px;
-      height: auto;
-    }
-  }
 `;
 
 export const Page = styled.div`
