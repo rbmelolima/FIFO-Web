@@ -49,7 +49,7 @@ export const Main = styled.main`
           display:flex;
           flex-direction: column;
           justify-content: center;
-          padding-bottom:100px;
+          padding:50px;
       }
     
 `;
