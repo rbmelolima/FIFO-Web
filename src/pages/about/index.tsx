@@ -1,8 +1,8 @@
 import React from 'react';
-import section_1 from '../../assets/about/section_1_index.png';
-import section_2 from '../../assets/about/section_2_index.png';
-import section_3 from '../../assets/about/section_3_index.png';
-import section_4 from '../../assets/about/section_4_index.png';
+import section_1 from '../../assets/about/section_1_index.svg';
+import section_2 from '../../assets/about/section_2_index.svg';
+import section_3 from '../../assets/about/section_3_index.svg';
+import section_4 from '../../assets/about/section_4_index.svg';
 import * as styles from './styles';
 import Logo from '../../assets/logo/logo.svg';
 import { ButtonPrimary, ButtonSecondary } from '../../styles/buttons';

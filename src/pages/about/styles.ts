@@ -5,12 +5,11 @@ export const Main = styled.main`
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    background-color: #222222;
+    background-color: #1c1c1c;
     
 
     section img{
         width:100%;
-        height:700px;
     }
 
 
@@ -50,6 +49,7 @@ export const Main = styled.main`
           display:flex;
           flex-direction: column;
           justify-content: center;
+          padding-bottom:100px;
       }
     
 `;
