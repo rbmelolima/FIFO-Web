@@ -3,23 +3,26 @@ import doodleDesktop from '../../assets/doodles/doodle-desktop.svg';
 import { InputMaterial } from '../../components/UI/input/styles';
 
 export const PageLogin = styled.div`
-  background-image: url('${doodleDesktop}');
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-color: var(--color-background);
-  background-size: contain;
-  background-size: 420px;    
-  
+  background-color: var(--color-background);   
+  min-height: 90vh;
+  height: 100%;
   padding: 64px 32px; 
-  width: 100%;
-  min-height: 120vh;
+  width: 100%;  
 
-  @media screen and (min-height: 800px) {
-    min-height: 90vh;
-  }   
-
+  @media screen and (min-width: 748px){
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('${doodleDesktop}');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 50%;
+  }
+  
   @media screen and (min-width: 1200px){
-    background-size: 60%;
+    background-size: 53%;
   }
 `;
 
@@ -30,20 +33,15 @@ export const Navbar = styled.nav`
   padding: 16px;
   gap: 16px;
   background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-primary-light);
+  border-bottom: 1px solid #824A21;
 
   img {
     width: 80px;
     height: auto;
   }
 
-
   @media screen and (min-width: 748px) {
-    padding: 16px 32px;
-
-    img {
-      width: 100px;
-    }
+    padding: 16px 32px;    
   }
 `;
 
@@ -53,13 +51,7 @@ export const Main = styled.main`
   justify-content: center;
   margin: 0 auto;
   max-width: 420px;
-  width: 100%;
-
-  @media screen and (min-width: 748px){
-    max-width: 900px;
-    margin-right: unset;
-    margin-left: auto;
-  }
+  width: 100%;  
 
   h1 {
     background-image: linear-gradient(180deg, #FE662E 17.76%, #F59C33 62.55%);
@@ -68,9 +60,14 @@ export const Main = styled.main`
     -webkit-text-fill-color: transparent; 
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
+    text-align: center;    
+  }
+
+  h1 {
     font-size: 48px;
-    text-align: center;
     margin-bottom: 16px;
+    font-family: 'Metrophobic', sans-serif;
+    font-weight: 400;
   }
 
   p {
@@ -97,13 +94,23 @@ export const Main = styled.main`
   }
 
   button {
-    max-width: 300px;
+    margin-top: 32px;
+    max-width: 260px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media screen and (min-width: 1200px){
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 748px){
+    max-width: 900px;
+    margin-right: unset;
+    margin-left: auto;
+
     h1 {
       font-size: 72px;
     }
