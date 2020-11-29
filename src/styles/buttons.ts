@@ -1,43 +1,36 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ButtonSecondary = styled.button`
-  padding: 12px 16px;
+const Default = css`
+  padding: 14px 12px;
   font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  background-color: var(--color-secundary);
+  font-weight: bold;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 14px;
   transition: all 0.2s ease-in;
 
-  &:hover, &active {
-    background-color: #262569;
-    color: #212121;
-  }
-
-  @media screen and (min-width: 748px) {
+  @media screen and (min-width: 948px) {
     font-size: 20px;
   }
 `;
 
+export const ButtonSecondary = styled.button`
+  ${ Default }
+  color: #fff;
+  background-color: var(--color-secundary);
+  
+  &:hover, &active {
+    background-color: #262569;    
+  }  
+`;
+
 export const ButtonPrimary = styled.button`
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 500;
+  ${ Default }
   color: #fff;
   background-color: var(--color-primary);
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  transition: all 0.3s ease-in;
 
   &:hover, &active {
     background-color: #FF4F0E;
-  }
-
-  @media screen and (min-width: 748px) {
-    font-size: 20px;
-  }
+  } 
 `;
 
