@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AvatarNavbarContainer } from '../avatar/styles';
+import { AvatarNavbarContainer, BtnOpen } from '../avatar/styles';
 
 
 export const Container = styled.div`
@@ -14,6 +14,10 @@ export const Container = styled.div`
   overflow-x: hidden;
   padding: 20px 0;
   border-radius: 35px 0px 0px 35px;
+
+  ${BtnOpen} {
+    color: #000;
+  }
 
 `;
 
