@@ -12,8 +12,8 @@ type params = {
 const ListQueue: React.FC<params> = ({ service, onBack }) => {
   return (
     <Container style={ { display: service !== '' ? 'block' : 'none' } }>
-      <BtnBack onClick={() => onBack()}>
-        <FiArrowLeft size={ 24 } color={ '#fff' } />
+      <BtnBack onClick={ () => onBack() }>
+        <FiArrowLeft size={ 32 } color={ '#fff' } />
       </BtnBack>
 
       <h2>Fila { service }</h2>
@@ -48,6 +48,10 @@ const ListQueue: React.FC<params> = ({ service, onBack }) => {
         <ButtonPrimary>
           Entrar na fila
         </ButtonPrimary>
+
+        <button onClick={ () => onBack() } >
+          Voltar
+        </button>
       </div>
 
     </Container>

@@ -33,7 +33,15 @@ export const Container = styled.div`
 `;
 
 export const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap; 
+  display: grid;
   gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (min-width: 748px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;

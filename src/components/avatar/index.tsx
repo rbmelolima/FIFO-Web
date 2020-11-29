@@ -23,7 +23,7 @@ const AvatarNavbar: React.FC<props> = ({ url, name }) => {
     <AvatarNavbarContainer>
       <img src={ url } alt={ `avatar-${name}` } />
       <div>
-        <strong>{ name }</strong>
+        <strong>{ 'Bem vindo, ' + name }</strong>
 
         <BtnOpen
           aria-describedby={ id }

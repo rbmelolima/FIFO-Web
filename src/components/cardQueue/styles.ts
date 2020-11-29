@@ -14,7 +14,7 @@ export const Container = styled.button`
     border-color: var(--color-secundary);
   }
   
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   padding: 12px 25px 12px 25px;
 

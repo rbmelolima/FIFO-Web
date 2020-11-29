@@ -11,7 +11,7 @@ type params = {
 const GridQueue: React.FC<params> = ({ selected, set }) => {
   return (
     <Container style={ { display: selected === '' ? 'block' : 'none' } }>
-      <h5> Escolha o serviço e entre na fila</h5>
+      <h5> Escolha o jogo e entre na fila</h5>
       <Grid>
         <CardQueue
           name="Playstation"

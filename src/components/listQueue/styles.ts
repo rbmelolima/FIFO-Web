@@ -41,10 +41,24 @@ export const Container = styled.div`
   .center {
     width: 100%;    
     text-align: center;  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   ${ButtonPrimary}{
     width: 260px;
+    margin: 0 auto;
+  }
+
+  ${ButtonPrimary} + button {
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    margin-top: 32px;
   }
 `;
 
