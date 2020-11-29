@@ -5,7 +5,7 @@ import Logo from '../../assets/logo/logo.svg';
 import { ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
 import Input from '../../components/UI/input/index';
 
-const Login: React.FC = () => {
+const Index: React.FC = () => {
 
   return (
     <>
@@ -40,4 +40,4 @@ const Login: React.FC = () => {
   )
 };
 
-export default Login;
+export default Index;

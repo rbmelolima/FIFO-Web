@@ -3,8 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserProvider from '../entities/user/context';
 
 import Queues from '../pages/queues';
-import Login from '../pages/login';
-import Register from '../pages/register';
+import Index from '../pages/index';
 
 export default function Routes () {
   return (
@@ -12,16 +11,8 @@ export default function Routes () {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login />
-          </Route>
-
-          <Route path="/entrar">
-            <Login />
-          </Route>
-
-          <Route path="/cadastrar">
-            <Register />
-          </Route>
+            <Index />
+          </Route>          
 
           <Route path="/filas">
             <Queues />
