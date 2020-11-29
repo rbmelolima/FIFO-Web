@@ -8,7 +8,7 @@ export const Container = styled.button`
   background-color: var(--color-background);
   outline: none;
   border-radius: 10px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   
   &.default {
     border-color: var(--color-secundary);
@@ -40,11 +40,10 @@ export const Container = styled.button`
 
 export const Gradiente = styled.div`
   &.active {
-    background-image: linear-gradient(180deg, #A8A8D0 0%, #FE662E 100%);
-    
+    background-image: linear-gradient(180deg, #A8A8D0 0%, #FE662E 100%);    
   } 
 
   border-radius: 10px;
   max-width: 100%;
-  padding: 4px;
+  padding: 2px;
 `;

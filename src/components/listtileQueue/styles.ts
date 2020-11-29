@@ -23,13 +23,13 @@ export const Container = styled.div`
   }
 
   div span {
-    color: #BA8E69;
+    color: #fff;
     font-size: 24px;
   }
 
   strong {
     font-size: 16px;
-    color: #BA8E69;
+    color: #fff;
   }
 
   img {
