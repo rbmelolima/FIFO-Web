@@ -5,11 +5,8 @@ import { ButtonPrimary } from '../../styles/buttons';
 import * as Icons from './assets';
 import * as styles from './styles';
 
-
-
 import Menu from '../../components/menu';
 import AvatarNavbar from '../../components/avatar';
-
 
 function Queues() {
   const [selected, setSelected] = useState<String>('');

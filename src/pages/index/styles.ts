@@ -35,13 +35,17 @@ export const Navbar = styled.nav`
   background-color: var(--color-background);
   border-bottom: 1px solid #824A21;
 
-  img {
+  img.logo {
     width: 80px;
     height: auto;
   }
 
   @media screen and (min-width: 748px) {
     padding: 16px 32px;    
+  }
+
+  .group button:first-child{     
+    margin-right: 32px;
   }
 `;
 
