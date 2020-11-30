@@ -10,12 +10,8 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 748px) {
-    max-width: 60%;
-  }
-
-  @media screen and (min-width: 992px) {
-    max-width: 50%;
-  }
+    max-width: 800px;
+  }  
   
   display: flex;
   flex-direction: column;

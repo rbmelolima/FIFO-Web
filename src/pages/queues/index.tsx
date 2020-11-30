@@ -56,7 +56,7 @@ function Queues () {
       </Menu>
 
       <styles.Page>
-        <styles.Main>
+        <main>
           <GridQueue
             set={ setService }
             selected={ selectService }
@@ -66,7 +66,7 @@ function Queues () {
             onBack={() => setService('')}
             service={ selectService }
           />
-        </styles.Main>
+        </main>
       </styles.Page>
     </React.Fragment>
   );

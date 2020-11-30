@@ -16,11 +16,3 @@ export const Page = styled.div`
   }
 `;
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: row;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;
-  }   
-`;
