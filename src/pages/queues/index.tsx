@@ -15,8 +15,12 @@ import { Ilocalization, ILocalizationService } from '../../entities/localization
 import { IService } from '../../entities/services/model';
 import { IStatusQueue } from '../../entities/queue/model';
 import { queue } from '../../entities/queue';
+import { useHistory } from 'react-router-dom';
+import { userWebstorage } from '../../entities/user';
 
 function Queues () {
+  const history = useHistory();
+
   //Display components
   const [ menuIsShow, setMenu ] = useState(false);
   const [ entryQueue, setEntryQueue ] = useState(false);
@@ -100,6 +104,13 @@ function Queues () {
         <Separator />
         <BtnListTile>
           Adicionar serviço
+        </BtnListTile>
+        <Separator />
+        <BtnListTile onClick={() => {
+          userWebstorage.clean();
+          history.push('/');
+        }}>
+          Sair
         </BtnListTile>
         <Separator />
       </Menu>

@@ -3,14 +3,14 @@ import { IUser } from './model';
 
 export class UserWebStorage {
   clean () {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user');
   }
 
   get (): IUser {
-    const userSessionStorage = sessionStorage.getItem('user');
+    const userlocalStorage = localStorage.getItem('user');
 
-    if (userSessionStorage !== null) {
-      return JSON.parse(userSessionStorage);
+    if (userlocalStorage !== null) {
+      return JSON.parse(userlocalStorage);
     }
 
     return emptyUser();
@@ -19,6 +19,6 @@ export class UserWebStorage {
   set (user: IUser) {
     this.clean();
     const parsed = JSON.stringify(user);
-    sessionStorage.setItem('user', parsed);
+    localStorage.setItem('user', parsed);
   }
 }

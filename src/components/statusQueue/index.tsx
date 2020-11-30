@@ -17,7 +17,7 @@ type params = {
 
 const StatusQueue: React.FC<params> = ({ status, service, entryQueueStatus, cleanService }) => {
   const { user } = useUser();
-  const [ position, setPosition ] = useState(-1);
+  const [ position, setPosition ] = useState(0);
 
   useEffect(() => {
     status?.forEach((userInUsers) => {
@@ -28,21 +28,21 @@ const StatusQueue: React.FC<params> = ({ status, service, entryQueueStatus, clea
   }, [ status, user ])
 
   function txtButton () {
-    if (position === 1) return 'Confirmar';
+    if (position === 0) return 'Confirmar';
 
     return 'Sair da fila';
   }
 
   function txtStatus () {
-    if (position === 1) return 'Sua vez chegou!';
+    if (position === 0) return 'Sua vez chegou!';
 
     return `${position}ª posição`;
   }
 
   function txtPhrases () {
-    if (position !== 1) {
+    if (position !== 0) {
       const phrases = json.phrases;
-      const phrase = phrases[ getRandomInt(1, phrases.length) ]
+      const phrase = phrases[ getRandomInt(0, phrases.length) ]
 
       return (
         <div className="reminder">
@@ -61,6 +61,7 @@ const StatusQueue: React.FC<params> = ({ status, service, entryQueueStatus, clea
     cleanService();
     //Sinaliza que saiu da fila
     entryQueueStatus(false);
+    document.location.reload();
   }
 
   return (

@@ -1,3 +1,8 @@
+# :exclamation: Disclaimer
+Peço desculpas à meu squad por não conseguir concluir adequadamente o frontend deste projeto.
+Este 1 mês foi bem atípico para mim. Por conta de problemas pessoais e tarefas que se anteciparam, não consegui dedicar tempo o suficiente para o término e refinamento do projeto.
+Novamente peço perdão a todos. 
+
 ## :crystal_ball: Pré-requisitos
 - **Node** na versão 8.10 ou superior 
 
@@ -20,9 +25,6 @@ $ yarn start
 
 # A aplicação rodará na pasta 3000 do localhost, caso a mesma esteja em utilização, a porta será outra.
 ```
-
-## :eyes: Visualizar o projeto
-O projeto está hospedado na Vercel. [Clique aqui para abrir no seu navegador!](http://fifo-web.vercel.app/)
 
 ## :white_check_mark: Dependências
 

@@ -1,5 +1,7 @@
+import { queueWebstorage } from '.';
 import instanceAPI from '../../service/api';
 import { IQueue, IStatusQueue } from './model';
+
 
 type argumentsEntry = {
   localization: number,
@@ -16,25 +18,25 @@ export class queueController {
   async entry (args: argumentsEntry) {
     try {
       const response = await instanceAPI.post<IQueue>('queue/entryQueue', args)
-      return response.data
+      queueWebstorage.set(args);
+
+      return response.data;
     } catch (error) {
       throw new Error("Não foi possível entrar na fila");
     }
   }
 
   async exit (idUser: number) {
-    try {
-      const response = await instanceAPI.post<IQueue>('queue/exitQueue', { id: idUser })
-      return response.data
-    } catch (error) {
-      throw new Error("Não foi possível sair da fila");
-    }
+    const response = await instanceAPI.post<IQueue>('queue/exitQueue', { id: idUser })
+    queueWebstorage.clean();
+
+    return response.data;
   }
 
   async list (args: argumentsList) {
     try {
-      const response = await instanceAPI.post<IStatusQueue[]>('queue/statusQueue', args)
-      return response.data
+      const response = await instanceAPI.post<IStatusQueue[]>('queue/statusQueue', args);
+      return response.data;
     } catch (error) {
       return [];
     }
