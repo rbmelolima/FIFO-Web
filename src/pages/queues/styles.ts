@@ -17,7 +17,7 @@ export const Page = styled.div`
 `;
 
 export const Functions = styled.div`
-  padding-bottom: 32px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #F4994D;
   max-width: 400px;
   width: 100%;
