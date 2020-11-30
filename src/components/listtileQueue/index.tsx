@@ -1,36 +1,44 @@
 import React from 'react';
-
+import { IStatusQueue } from '../../entities/queue/model';
+import { baseUrl } from '../../service/api';
 import { Container, Divider, Gradiente } from './styles';
 
 interface props {
-  position: number;
-  avatar: string;
-  name: string;
-
+  userInQueue: IStatusQueue
 }
 
-function ListtileQueue(props: props) {
-  const { avatar, name, position } = props
+const ListtileQueue: React.FC<props> = ({ userInQueue }) => {
+  const { position, user } = userInQueue;
 
+  function txtName () {
+    if (user.name === null || user.name === '') {
+      const split = user.email.split('@');
+      return split[ 0 ];
+    }
+    return user.name;
+  }
+  
   return (
     <>
-      <Gradiente className={position === 1 ? 'active' : ''}>
+      <Gradiente className={ position === 0 ? 'active' : '' }>
         <Container>
           <div>
-            <span>{position}</span>
-            <img src={avatar} alt="" />
-            <strong>{name}</strong>
+            <span>{ position }</span>
+            <img src={ baseUrl + user.cover.url } alt="" />
+            <strong>{ txtName() }</strong>
           </div>
 
-          {position === 1 && <span className="info">Próximo</span>}
+          { position === 0 && <span className="info"> Próximo </span> }
         </Container>
       </Gradiente>
 
       {
-        position !== 1 && <Divider />
+        position !== 0 && <Divider />
       }
     </>
   );
 }
+
+
 
 export default ListtileQueue;

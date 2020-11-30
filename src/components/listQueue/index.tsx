@@ -1,58 +1,62 @@
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
+import { Ilocalization } from '../../entities/localization/model';
+import { queue } from '../../entities/queue';
+import { IStatusQueue } from '../../entities/queue/model';
+import { IService } from '../../entities/services/model';
+import { useUser } from '../../entities/user/context';
 import { ButtonPrimary } from '../../styles/buttons';
 import ListtileQueue from '../listtileQueue';
 import { BtnBack, Container } from './styles';
 
 type params = {
-  service: number;
+  localization: Ilocalization | null;
+  service: IService | null;
+  usersInQueue: IStatusQueue[] | null;
   onBack: () => void;
   entryQueueStatus: (entry: boolean) => void
 }
 
-const ListQueue: React.FC<params> = ({ service, onBack, entryQueueStatus }) => {
-  function handleEntryQueue () {
+const ListQueue: React.FC<params> = ({ localization, service, onBack, entryQueueStatus, usersInQueue }) => {
+  const { user } = useUser();
 
-    //Sinaliza que entrou na fila
-    entryQueueStatus(true)
+  async function handleEntryQueue () {
+    if (localization !== null && service !== null) {
+      queue.entry({
+        user: user.id,
+        localization: localization?.id,
+        service: service?.id
+      });
+
+      //Sinaliza que entrou na fila
+      entryQueueStatus(true);
+    }
   }
 
   return (
-    <Container style={ { display: service !== -1 ? 'block' : 'none' } }>
+    <Container style={ { display: service !== null ? 'block' : 'none' } }>
       <BtnBack onClick={ () => onBack() }>
         <FiArrowLeft size={ 32 } color={ '#fff' } />
       </BtnBack>
 
-      <h2>Fila { service }</h2>
+      <h2>Fila { service?.name }</h2>
 
-      <ListtileQueue
-        avatar="https://avatars3.githubusercontent.com/u/48859060?s=460&u=5ce755298e920f74f1f4ffc4ef5809ff1c56890d&v=4"
-        name="rbmelolima"
-        position={ 1 }
-      />
+      {
+        usersInQueue?.map((value) => {
+          console.log(value)
+          return (
+            <ListtileQueue
+              key={ value.entry_queue }
+              userInQueue={ value }
+            />
+          )
+        })
+      }
 
-      <ListtileQueue
-        avatar="https://avatars2.githubusercontent.com/u/6643122?s=460&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4"
-        name="maykbrito"
-        position={ 2 }
-      />
-
-      <ListtileQueue
-        avatar="https://avatars2.githubusercontent.com/u/2254731?s=460&u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&v=4"
-        name="diego3g"
-        position={ 3 }
-      />
-
-      <ListtileQueue
-        avatar="https://avatars3.githubusercontent.com/u/53866869?s=460&u=4aa9ab799d84d61fa14d646c318d65edc57e62e1&v=4"
-        name="MatheusPalinkas"
-        position={ 4 }
-      />
-
-      <footer>Tem n pessoas na fila</footer>
+      <footer>Tem { usersInQueue !== null && usersInQueue.length } pessoas na fila</footer>
 
       <div className="center">
-        <ButtonPrimary onClick={() => handleEntryQueue()}>
+        <ButtonPrimary onClick={ () => handleEntryQueue() }>
           Entrar na fila
         </ButtonPrimary>
 

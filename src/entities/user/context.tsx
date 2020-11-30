@@ -10,7 +10,11 @@ const defaultUser: UserProviderModel = {
   id: -1,
   name: '',
   email: '',
-  cover: '',
+  cover: {
+    id: -1,
+    url: '',
+    category: ''
+  },
   last_socket_id: -1,
   localization_id: -1,
   setUser: () => { }

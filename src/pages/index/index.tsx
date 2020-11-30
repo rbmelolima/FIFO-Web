@@ -78,6 +78,7 @@ const Index: React.FC = () => {
             <Input
               placeholder="exemplo@exemplo.com"
               label="Email"
+              type="email"
               value={ email }
               onChange={ (e) => setEmail(e.target.value) }
             />

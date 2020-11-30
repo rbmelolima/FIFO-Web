@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ButtonPrimary } from '../../styles/buttons';
 import { Container, CircularStatus } from './styles';
 import json from '../../utils/phrases.json';
 import { getRandomInt } from '../../utils/getRandomInt';
+import { IService } from '../../entities/services/model';
+import { IStatusQueue } from '../../entities/queue/model';
+import { useUser } from '../../entities/user/context';
+import { queue } from '../../entities/queue';
 
 type params = {
-  position: number;
-  game: number;
+  service: IService | null;
+  status: IStatusQueue[] | null
   entryQueueStatus: (entry: boolean) => void;
   cleanService: () => void;
 }
 
-const StatusQueue: React.FC<params> = ({ position, game, entryQueueStatus, cleanService }) => {
+const StatusQueue: React.FC<params> = ({ status, service, entryQueueStatus, cleanService }) => {
+  const { user } = useUser();
+  const [ position, setPosition ] = useState(-1);
+
+  useEffect(() => {
+    status?.forEach((userInUsers) => {
+      if (userInUsers.user.email === user.email) {
+        setPosition(userInUsers.position);
+      }
+    })
+  }, [ status, user ])
+
   function txtButton () {
-    if (position === 0) return 'Confirmar';
+    if (position === 1) return 'Confirmar';
 
     return 'Sair da fila';
   }
 
   function txtStatus () {
-    if (position === 0) return 'Sua vez chegou!';
+    if (position === 1) return 'Sua vez chegou!';
 
     return `${position}ª posição`;
   }
 
   function txtPhrases () {
-    if (position !== 0) {
+    if (position !== 1) {
       const phrases = json.phrases;
-      const phrase = phrases[ getRandomInt(0, phrases.length) ]
+      const phrase = phrases[ getRandomInt(1, phrases.length) ]
 
       return (
         <div className="reminder">
@@ -38,24 +53,14 @@ const StatusQueue: React.FC<params> = ({ position, game, entryQueueStatus, clean
         </div>
       )
     }
-  }  
+  }
 
-  function manager () {
-    if (position === 0) {
-      //Executar uma função
-
-      //Limpa o status service do componente pai
-      cleanService()
-      //Sinaliza que saiu da fila
-      entryQueueStatus(false);
-    }
-
-    else {
-      //Limpa o status service do componente pai
-      cleanService()
-      //Sinaliza que saiu da fila
-      entryQueueStatus(false);
-    }
+  async function handle () {
+    await queue.exit(user.id);
+    //Limpa o status service do componente pai
+    cleanService();
+    //Sinaliza que saiu da fila
+    entryQueueStatus(false);
   }
 
   return (
@@ -66,13 +71,13 @@ const StatusQueue: React.FC<params> = ({ position, game, entryQueueStatus, clean
         </h3>
       </CircularStatus>
 
-      <p>Você está aguardando na fila do(a) { game }</p>
+      <p>Você está aguardando na fila do(a) { service?.name }</p>
 
       {
         txtPhrases()
       }
 
-      <ButtonPrimary onClick={ () => manager() }>
+      <ButtonPrimary onClick={ () => handle() }>
         { txtButton() }
       </ButtonPrimary>
     </Container>

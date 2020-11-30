@@ -33,10 +33,10 @@ export class queueController {
 
   async list (args: argumentsList) {
     try {
-      const response = await instanceAPI.post<IStatusQueue>('queue/statusQueue', args)
+      const response = await instanceAPI.post<IStatusQueue[]>('queue/statusQueue', args)
       return response.data
     } catch (error) {
-      throw new Error("Não foi possível listar as pessoas que estão na fila");
+      return [];
     }
   }
 }

@@ -13,14 +13,13 @@ interface props {
 }
 
 const AvatarNavbar: React.FC<props> = ({ listLocalizations, localizationSelected, setLocalization }) => {
+  const { user } = useUser();
   const [ anchorEl, setAnchorEl ] = useState<any>(null);
   const open = Boolean(anchorEl);
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const { user } = useUser();
+  };  
 
   function txtName () {
     if (user.name === null || user.name === '') {
@@ -31,9 +30,9 @@ const AvatarNavbar: React.FC<props> = ({ listLocalizations, localizationSelected
   }
 
   function urlImg () {
-    if (user.cover === '' || user.cover === null) return userIconDefault;
+    if (user.cover === null) return userIconDefault;
 
-    return user.cover;
+    return user.cover.url;
   }
 
   return (
@@ -71,7 +70,7 @@ const AvatarNavbar: React.FC<props> = ({ listLocalizations, localizationSelected
         >
           <GroupButtons>
             {
-              listLocalizations?.map((value, index) => {
+              listLocalizations?.map((value, index) => {                
                 return (
                   <button key={ index } onClick={ () => setLocalization(value) }>
                     {

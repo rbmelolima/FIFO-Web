@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonMenu } from '../../styles/buttons';
-import * as Icons from '../../components/gridQueue/assets';
+import BtnIconMenu from '../../assets/icons/ButtonMenu.svg';
 import AvatarNavbar from '../../components/avatar';
 import Menu from '../../components/menu';
 import { AvatarContainer, BtnListTile, Separator } from '../../components/menu/styles';
@@ -12,17 +12,21 @@ import { Page, Functions } from './styles';
 import Visible from '../../components/visible';
 import { localization } from '../../entities/localization';
 import { Ilocalization, ILocalizationService } from '../../entities/localization/model';
+import { IService } from '../../entities/services/model';
+import { IStatusQueue } from '../../entities/queue/model';
+import { queue } from '../../entities/queue';
 
 function Queues () {
   //Display components
   const [ menuIsShow, setMenu ] = useState(false);
-  const [ selectService, setService ] = useState(-1);
   const [ entryQueue, setEntryQueue ] = useState(false);
 
   //Queue information  
   const [ listServices, setListServices ] = useState<ILocalizationService[] | null>(null);
   const [ listLocatizations, setLocalizations ] = useState<Ilocalization[] | null>(null);
   const [ selectedLocalization, setSelectedLocalization ] = useState<Ilocalization | null>(null);
+  const [ selectService, setService ] = useState<IService | null>(null);
+  const [ usersInQueue, setUsersInQueue ] = useState<IStatusQueue[] | null>(null);
 
   async function handleLocalization () {
     const listLocals = await localization.list();
@@ -35,17 +39,33 @@ function Queues () {
     setListServices(listServices);
   }
 
+  async function handleStatusQueue (idLocalization: number, idService: number) {
+    const listUsers = await queue.list({
+      localization: idLocalization,
+      service: idService
+    });
+
+    setUsersInQueue(listUsers);
+  }
+
   useEffect(() => {
+    console.warn("Buscando lista de filiais")
     handleLocalization();
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (selectedLocalization !== null) {
-      console.log("Buscando lista de serviços")
+      console.warn("Buscando lista de serviços")
       handleService(selectedLocalization.id);
     }
+  }, [ selectedLocalization ]);
 
-  }, [selectedLocalization])
+  useEffect(() => {
+    if (selectedLocalization !== null && selectService !== null) {
+      console.warn("Buscando usuários de dentro de uma fila")
+      handleStatusQueue(selectedLocalization.id, selectService.id)
+    }
+  }, [ selectedLocalization, selectService ]);
 
   return (
     <React.Fragment>
@@ -57,7 +77,7 @@ function Queues () {
         />
 
         <ButtonMenu onClick={ () => setMenu(true) }>
-          <img src={ Icons.ButtonMenu } alt="" />
+          <img src={ BtnIconMenu } alt="" />
         </ButtonMenu>
       </Navbar>
 
@@ -108,18 +128,21 @@ function Queues () {
             />
 
             <ListQueue
-              onBack={ () => setService(-1) }
+              onBack={ () => setService(null) }
               entryQueueStatus={ setEntryQueue }
               service={ selectService }
+              localization={selectedLocalization}
+              usersInQueue={ usersInQueue }
             />
           </Visible>
 
           <Visible isVisible={ entryQueue }>
             <StatusQueue
               entryQueueStatus={ setEntryQueue }
-              cleanService={ () => setService(-1) }
-              position={ 0 }
-              game={ selectService }
+              cleanService={ () => setService(null) }
+              service={ selectService }
+              status={ usersInQueue }
+
             />
           </Visible>
 
