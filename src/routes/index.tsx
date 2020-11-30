@@ -5,8 +5,9 @@ import UserProvider from '../entities/user/context';
 import Queues from '../pages/queues';
 import Login from '../pages/login';
 import Register from '../pages/register';
+import About from '../pages/about';
 
-export default function Routes () {
+export default function Routes() {
   return (
     <UserProvider>
       <BrowserRouter>
@@ -25,6 +26,10 @@ export default function Routes () {
 
           <Route path="/filas">
             <Queues />
+          </Route>
+
+          <Route path="/sobre">
+            <About />
           </Route>
         </Switch>
       </BrowserRouter>
