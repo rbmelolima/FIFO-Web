@@ -7,9 +7,16 @@ import { BtnBack, Container } from './styles';
 type params = {
   service: string;
   onBack: () => void;
+  entryQueueStatus: (entry: boolean) => void
 }
 
-const ListQueue: React.FC<params> = ({ service, onBack }) => {
+const ListQueue: React.FC<params> = ({ service, onBack, entryQueueStatus }) => {
+  function handleEntryQueue () {
+
+    //Sinaliza que entrou na fila
+    entryQueueStatus(true)
+  }
+
   return (
     <Container style={ { display: service !== '' ? 'block' : 'none' } }>
       <BtnBack onClick={ () => onBack() }>
@@ -45,7 +52,7 @@ const ListQueue: React.FC<params> = ({ service, onBack }) => {
       <footer>Tem n pessoas na fila</footer>
 
       <div className="center">
-        <ButtonPrimary>
+        <ButtonPrimary onClick={() => handleEntryQueue()}>
           Entrar na fila
         </ButtonPrimary>
 
