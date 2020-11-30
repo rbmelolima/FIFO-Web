@@ -50,5 +50,12 @@ export const Functions = styled.div`
       background-color: initial;
     }
   }    
+
+  @media screen and (max-width: 576px) {
+    button {
+      padding: 12px;
+      font-size: 20px;
+    }
+  }
 `;
 

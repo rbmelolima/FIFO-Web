@@ -54,4 +54,13 @@ export const CircularStatus = styled.div`
     color: #fff;
     max-width: 240px;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 300px;
+    height: 300px;
+
+    h3 {
+      font-size: 32px;
+    }
+  }
 `;
