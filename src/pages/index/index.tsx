@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import Logo from '../../assets/logo/logo.svg';
 import IconBtnMenu from '../../assets/icons/ButtonMenu.svg';
 import { ButtonMenu, ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
@@ -8,11 +8,23 @@ import { useHistory } from 'react-router-dom';
 import { BtnListTile, Separator, Welcome } from '../../components/menu/styles';
 import Navbar from '../../components/navbar';
 import Menu from '../../components/menu';
+import { userController } from '../../entities/user';
+import { useUser } from '../../entities/user/context';
 
 const Index: React.FC = () => {
   const history = useHistory();
-
   const [ openMenu, setOpenMenu ] = useState(false);
+  const [ email, setEmail ] = useState('');
+  const { setUser } = useUser();
+
+  async function handleLogin (event: FormEvent) {
+    event.preventDefault();
+
+    const user = await userController.login(email);
+    setUser(user);
+
+    history.push('/filas');
+  }
 
   return (
     <React.Fragment>
@@ -49,7 +61,7 @@ const Index: React.FC = () => {
         <BtnListTile>
           Versão clara
         </BtnListTile>
-        
+
         <Separator />
       </Menu>
 
@@ -62,12 +74,14 @@ const Index: React.FC = () => {
 
           <h2>Vamos começar!</h2>
 
-          <form action="">
+          <form onSubmit={handleLogin}>
             <Input
               placeholder="exemplo@exemplo.com"
               label="Email"
+              value={ email }
+              onChange={ (e) => setEmail(e.target.value) }
             />
-            <ButtonPrimary> Entrar </ButtonPrimary>
+            <ButtonPrimary type="submit"> Entrar </ButtonPrimary>
           </form>
         </Main>
       </PageLogin>

@@ -84,7 +84,7 @@ function Queues () {
             <StatusQueue
               entryQueueStatus={ setEntryQueue }
               cleanService={() => setService('')}
-              position={ 9 }
+              position={ 0 }
               game={ selectService }
             />
           </Visible>

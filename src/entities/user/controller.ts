@@ -1,14 +1,14 @@
-import { IUser, User } from './model'
+import instanceAPI from '../../service/api'
+import { IUser } from './model'
 
 export class UserController {
-  emptyUser (): IUser {
-    return new User({
-      id: -1,
-      name: '',
-      email: '',
-      cover: '',
-      last_socket_id: -1,
-      localization_id: -1
-    })
+  async login (email: string) {
+    try {
+      const response = await instanceAPI.post<IUser>('user/login', { email });
+
+      return response.data;
+    } catch (error) {
+      throw new Error("Não foi possível realizar o login!");
+    }
   }
 }

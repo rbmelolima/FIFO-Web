@@ -1,4 +1,4 @@
-import { userController } from '.';
+import { emptyUser } from './helper';
 import { IUser } from './model';
 
 export class UserWebStorage {
@@ -13,7 +13,7 @@ export class UserWebStorage {
       return JSON.parse(userSessionStorage);
     }
 
-    return userController.emptyUser();
+    return emptyUser();
   }
 
   set (user: IUser) {
