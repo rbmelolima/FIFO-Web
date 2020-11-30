@@ -6,7 +6,7 @@ import { getRandomInt } from '../../utils/getRandomInt';
 
 type params = {
   position: number;
-  game: string;
+  game: number;
   entryQueueStatus: (entry: boolean) => void;
   cleanService: () => void;
 }

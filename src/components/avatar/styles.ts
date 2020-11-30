@@ -6,15 +6,15 @@ export const AvatarNavbarContainer = styled.div`
 
   img {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     margin-right: 8px;    
   }
 
   strong {
     display: block;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--color-primary);
     margin-bottom: 4px;
   }  

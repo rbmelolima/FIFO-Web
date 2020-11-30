@@ -1,24 +1,44 @@
 import React from 'react';
 import CardQueue from '../cardQueue';
 import { Container, Grid } from './styles';
-import * as Icons from './assets';
+/* import * as Icons from './assets';
+ */
+import { baseUrl } from '../../service/api';
+import { ILocalizationService } from '../../entities/localization/model';
 
 type params = {
-  selected: string;
-  set: (service: string) => void;
+  listServices: Array<ILocalizationService> | null;
+  selected: number;
+  set: (service: number) => void;
 }
 
-const GridQueue: React.FC<params> = ({ selected, set }) => {
+const GridQueue: React.FC<params> = ({ selected, set, listServices }) => {
   return (
-    <Container style={ { display: selected === '' ? 'block' : 'none' } }>
+    <Container style={ { display: selected === -1 ? 'block' : 'none' } }>
       <h5> Escolha o jogo e entre na fila</h5>
       <Grid>
-        <CardQueue
+        {
+          listServices !== null && listServices.map((service, index) => {
+            return (
+              <CardQueue
+                key={ index }
+                name={ service.service.name }
+                active={ selected === service.id && true }
+                url={ baseUrl + service.service.cover.url }
+                click={ () => {
+                  set(service.id);
+                } }
+              />
+            )
+          })
+        }
+
+        {/* <CardQueue
           name="Playstation"
           active={ selected === 'Playstation' && true }
           url={ Icons.Videogame }
           click={ () => {
-            set('Playstation');            
+            set('Playstation');
           } }
         />
         <CardQueue
@@ -26,7 +46,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Sinuca' && true }
           url={ Icons.Sinuca }
           click={ () => {
-            set('Sinuca');           
+            set('Sinuca');
           } }
         />
         <CardQueue
@@ -34,7 +54,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Ping Pong' && true }
           url={ Icons.Pingpong }
           click={ () => {
-            set('Ping Pong');            
+            set('Ping Pong');
           } }
         />
         <CardQueue
@@ -42,7 +62,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Xadrez' && true }
           url={ Icons.Xadrez }
           click={ () => {
-            set('Xadrez');            
+            set('Xadrez');
           } }
         />
         <CardQueue
@@ -50,7 +70,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Breanking Bad' && true }
           url={ Icons.Breankingbad }
           click={ () => {
-            set('Breanking Bad');            
+            set('Breanking Bad');
           } }
         />
         <CardQueue
@@ -58,7 +78,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Resistence' && true }
           url={ Icons.Resistance }
           click={ () => {
-            set('Resistence');            
+            set('Resistence');
           } }
         />
         <CardQueue
@@ -66,7 +86,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Uno' && true }
           url={ Icons.Uno }
           click={ () => {
-            set('Uno');            
+            set('Uno');
           } }
         />
 
@@ -75,7 +95,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Zumbie City' && true }
           url={ Icons.Zumbie }
           click={ () => {
-            set('Zumbie City');            
+            set('Zumbie City');
           } }
         />
         <CardQueue
@@ -83,7 +103,7 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Detetive' && true }
           url={ Icons.Detetive }
           click={ () => {
-            set('Detetive');            
+            set('Detetive');
           } }
         />
         <CardQueue
@@ -91,9 +111,9 @@ const GridQueue: React.FC<params> = ({ selected, set }) => {
           active={ selected === 'Massagem' && true }
           url={ Icons.Massagem }
           click={ () => {
-            set('Massagem');            
+            set('Massagem');
           } }
-        />
+        /> */}
       </Grid>
     </Container>
   );

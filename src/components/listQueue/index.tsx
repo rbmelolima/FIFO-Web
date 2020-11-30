@@ -5,7 +5,7 @@ import ListtileQueue from '../listtileQueue';
 import { BtnBack, Container } from './styles';
 
 type params = {
-  service: string;
+  service: number;
   onBack: () => void;
   entryQueueStatus: (entry: boolean) => void
 }
@@ -18,7 +18,7 @@ const ListQueue: React.FC<params> = ({ service, onBack, entryQueueStatus }) => {
   }
 
   return (
-    <Container style={ { display: service !== '' ? 'block' : 'none' } }>
+    <Container style={ { display: service !== -1 ? 'block' : 'none' } }>
       <BtnBack onClick={ () => onBack() }>
         <FiArrowLeft size={ 32 } color={ '#fff' } />
       </BtnBack>

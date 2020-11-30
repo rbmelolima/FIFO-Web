@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ButtonMenu } from '../../styles/buttons';
 import * as Icons from '../../components/gridQueue/assets';
 import AvatarNavbar from '../../components/avatar';
@@ -10,18 +10,50 @@ import ListQueue from '../../components/listQueue';
 import StatusQueue from '../../components/statusQueue';
 import { Page, Functions } from './styles';
 import Visible from '../../components/visible';
+import { localization } from '../../entities/localization';
+import { Ilocalization, ILocalizationService } from '../../entities/localization/model';
 
 function Queues () {
+  //Display components
   const [ menuIsShow, setMenu ] = useState(false);
-  const [ selectService, setService ] = useState('');
-  const [ entryQueue, setEntryQueue ] = useState<boolean>(false);
+  const [ selectService, setService ] = useState(-1);
+  const [ entryQueue, setEntryQueue ] = useState(false);
+
+  //Queue information  
+  const [ listServices, setListServices ] = useState<ILocalizationService[] | null>(null);
+  const [ listLocatizations, setLocalizations ] = useState<Ilocalization[] | null>(null);
+  const [ selectedLocalization, setSelectedLocalization ] = useState<Ilocalization | null>(null);
+
+  async function handleLocalization () {
+    const listLocals = await localization.list();
+    setSelectedLocalization(listLocals[ 0 ]);
+    setLocalizations(listLocals);
+  }
+
+  async function handleService (id: number) {
+    const listServices = await localization.listServices(id);
+    setListServices(listServices);
+  }
+
+  useEffect(() => {
+    handleLocalization();
+  }, [])
+
+  useEffect(() => {
+    if (selectedLocalization !== null) {
+      console.log("Buscando lista de serviços")
+      handleService(selectedLocalization.id);
+    }
+
+  }, [selectedLocalization])
 
   return (
     <React.Fragment>
       <Navbar>
         <AvatarNavbar
-          name="Roger"
-          url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4"
+          listLocalizations={ listLocatizations }
+          localizationSelected={ selectedLocalization }
+          setLocalization={ setSelectedLocalization }
         />
 
         <ButtonMenu onClick={ () => setMenu(true) }>
@@ -32,8 +64,9 @@ function Queues () {
       <Menu onClose={ () => setMenu(false) } visible={ menuIsShow }>
         <AvatarContainer>
           <AvatarNavbar
-            name="Roger"
-            url="https://avatars3.githubusercontent.com/u/48859060?s=460&u=123d876938f95e03eaadd31dbb079018fa374c77&v=4"
+            listLocalizations={ listLocatizations }
+            localizationSelected={ selectedLocalization }
+            setLocalization={ setSelectedLocalization }
           />
         </AvatarContainer>
         <Separator />
@@ -69,12 +102,13 @@ function Queues () {
 
           <Visible isVisible={ !entryQueue }>
             <GridQueue
+              listServices={ listServices }
               set={ setService }
               selected={ selectService }
             />
 
             <ListQueue
-              onBack={ () => setService('') }
+              onBack={ () => setService(-1) }
               entryQueueStatus={ setEntryQueue }
               service={ selectService }
             />
@@ -83,7 +117,7 @@ function Queues () {
           <Visible isVisible={ entryQueue }>
             <StatusQueue
               entryQueueStatus={ setEntryQueue }
-              cleanService={() => setService('')}
+              cleanService={ () => setService(-1) }
               position={ 0 }
               game={ selectService }
             />

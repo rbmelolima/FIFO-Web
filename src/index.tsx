@@ -5,10 +5,10 @@ import Routes from './routes';
 import { GlobalStyle } from './styles/global';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <GlobalStyle />
     <Routes />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 
@@ -16,3 +16,12 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+/* 
+STRICT MODE
+<React.StrictMode>
+    <GlobalStyle />
+    <Routes />
+</React.StrictMode> 
+
+*/

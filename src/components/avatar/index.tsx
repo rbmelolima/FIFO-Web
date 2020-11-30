@@ -2,38 +2,61 @@ import React, { useState } from 'react';
 import { AvatarNavbarContainer, BtnOpen, GroupButtons } from './styles';
 import { FiChevronDown } from 'react-icons/fi';
 import { Popover } from '@material-ui/core';
+import { Ilocalization } from '../../entities/localization/model';
+import { useUser } from '../../entities/user/context';
+import userIconDefault from '../../assets/icons/user.svg';
 
 interface props {
-  url: string,
-  name: string
+  listLocalizations: Ilocalization[] | null;
+  localizationSelected: Ilocalization | null;
+  setLocalization: (value: Ilocalization) => void;
 }
 
-const AvatarNavbar: React.FC<props> = ({ url, name }) => {
+const AvatarNavbar: React.FC<props> = ({ listLocalizations, localizationSelected, setLocalization }) => {
   const [ anchorEl, setAnchorEl ] = useState<any>(null);
-  const [ location, setlocation ] = useState('Santos');
+  const open = Boolean(anchorEl);
 
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const { user } = useUser();
+
+  function txtName () {
+    if (user.name === null || user.name === '') {
+      const split = user.email.split('@');
+      return split[ 0 ];
+    }
+    return user.name;
+  }
+
+  function urlImg () {
+    if (user.cover === '' || user.cover === null) return userIconDefault;
+
+    return user.cover;
+  }
 
   return (
     <AvatarNavbarContainer>
-      <img src={ url } alt={ `avatar-${name}` } />
+      <img
+        src={ urlImg() }
+        alt="avatar"
+        onError={ (event: React.SyntheticEvent<HTMLImageElement>) => {
+          event.currentTarget.src = userIconDefault;
+        } }
+      />
       <div>
-        <strong>{ 'Bem vindo, ' + name }</strong>
+        <strong>{ 'Bem vindo, ' + txtName() }</strong>
 
         <BtnOpen
-          aria-describedby={ id }
+          aria-describedby={ open ? 'simple-popover' : undefined }
           onClick={ (event: React.MouseEvent) => setAnchorEl(event.currentTarget) }
         >
-          { location } <FiChevronDown />
+          { localizationSelected?.name } <FiChevronDown />
         </BtnOpen>
 
         <Popover
-          id={ id }
+          id={ open ? 'simple-popover' : undefined }
           open={ open }
           anchorEl={ anchorEl }
           onClose={ handleClose }
@@ -47,8 +70,17 @@ const AvatarNavbar: React.FC<props> = ({ url, name }) => {
           } }
         >
           <GroupButtons>
-            <button onClick={ () => setlocation('São Paulo') }> São Paulo</button>
-            <button onClick={ () => setlocation('Santos') }> Santos</button>
+            {
+              listLocalizations?.map((value, index) => {
+                return (
+                  <button key={ index } onClick={ () => setLocalization(value) }>
+                    {
+                      value.name
+                    }
+                  </button>
+                );
+              })
+            }
           </GroupButtons>
         </Popover>
       </div>

@@ -14,6 +14,7 @@ const defaultUser: UserProviderModel = {
   last_socket_id: -1,
   localization_id: -1,
   setUser: () => { }
+
 };
 
 const UserContext = createContext<UserProviderModel>(defaultUser);
@@ -34,7 +35,7 @@ const UserProvider: React.FC = ({ children }) => {
   return (
     <UserContext.Provider value={
       {
-        id: user.id,        
+        id: user.id,
         cover: user.cover,
         last_socket_id: user.last_socket_id,
         localization_id: user.localization_id,
@@ -53,8 +54,10 @@ export function useUser () {
 
   if (!context) throw new Error("useUser must be used within a UserProvider.");
 
-  const { email, name, setUser } = context;
-  const user = { name, email };
+  const { id, cover, email, last_socket_id, localization_id, name, setUser } = context;
+
+  const user = { id, cover, email, last_socket_id, localization_id, name };
+
   return { user, setUser };
 }
 
