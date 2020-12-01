@@ -1,28 +1,36 @@
 import styled from 'styled-components';
 
-import doodleDesktop from '../../assets/doodles/DOODLE-DESKTOP.svg';
 
-export const PageLogin = styled.div`
-  background-image: url('${doodleDesktop}');
-  background-position: left bottom;
-  background-repeat: no-repeat;
+export const Container = styled.div`
   background-color: var(--color-background);
-  background-size: contain;
-  
-  padding: 32px;  
-  width: 100%;
-  min-height: 90vh;  
+  section:nth-child(n+2) img{
+     width:90%;
+   }
 
-  @media screen and (min-width: 748px){
-    background-size: 40%;
-    display: flex;
-    align-items: center;
-    padding: 64px 32px;
-  }
+   section:nth-child(n+2) .container_section_elements_img{
+     display:flex;
+     align-items: center;
+     justify-content: center;
+   }
 
-  @media screen and (min-width: 1200px){
-    background-size: 50%;
-  }
+   @media screen and (max-width: 700px) {
+      section:nth-child(2n+1){
+        display:flex;
+        flex-direction:column-reverse;
+       
+      }
+
+      section:nth-child(2n+1) .container_section_elements{
+        padding-left:20px;
+      }
+
+      section:nth-child(2n) .container_section_elements{
+        padding-right:20px;
+      }
+
+   }
+   
+
 `;
 
 export const Navbar = styled.nav`
@@ -31,7 +39,7 @@ export const Navbar = styled.nav`
   align-items: center;
   padding: 16px;
   gap: 16px;
-  background-color: var(--color-background);
+ 
   border-bottom: 1px solid var(--color-primary-light);
 
   img {
@@ -49,48 +57,67 @@ export const Navbar = styled.nav`
   }
 `;
 
-export const Main = styled.main`
-  display: flex;
+export const Main = styled.div`
+
+  width: 100%;  
+
+  .container_right{
+    border-radius: 50px 0 0px 50px;
+  }
+
+  .container_left{
+    border-radius: 0px 50px 50px 0px;
+  }
+
+`;
+
+export const Section = styled.section`
+  width: 100%;
+  display:flex;
+  
+ 
+  padding-top:30px;
+  margin-bottom:100px;
+
+  .container_section_elements{
+    width:50%;
+  }
+
+  .container_section_elements_img{
+    width:50%;
+  }
+
+  .container_section_elements_img img{
+    width:100%;
+  }
+
+  .container_section_elements div{
+    width:100%;
+  }
+
+  @media screen and (max-width: 700px) {
+    display:block;
+    margin-bottom:20px;
+
+    .container_section_elements_img{
+      width:100%;
+    }
+
+    .container_section_elements{
+      width:100%;
+      margin-bottom:20px;
+    }
+  }
+`;
+
+
+export const FormIndex = styled.div`
+  
+  display:flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
-  max-width: 400px;
-  width: 100%;
-
-  @media screen and (min-width: 1200px){
-    max-width: 800px;
-    margin-right: unset;
-    margin-left: auto;
-  }
-
-  h1 {
-    background-image: linear-gradient(180deg, #FE662E 17.76%, #F59C33 62.55%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    font-size: 48px;
-    text-align: center;
-    margin-bottom: 16px;
-  }
-
-  p {
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-
-  h2 {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    color: #FE662E;
-    margin-bottom: 16px;
-  }
-
+  padding:50px;
+  
   input {
     margin-bottom: 16px;
     max-width: 460px;
@@ -104,17 +131,18 @@ export const Main = styled.main`
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-top:20px;
   }
 
-  @media screen and (min-width: 1200px){
-    h1 {
-      font-size: 72px;
-    }
-
-    p {
-      font-size: 18px;
-    }
+  h2 {
+    color:#fe662e;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 28px;
+    text-align: center;
+    
+    margin-bottom: 50px;
   }
+
 
 `;
-

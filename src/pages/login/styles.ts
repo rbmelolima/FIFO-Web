@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import doodleDesktop from '../../assets/doodles/DOODLE-DESKTOP.svg';
+import doodleDesktop from '../../assets/doodles/doodle-desktop.svg';
 
 export const PageLogin = styled.div`
   background-image: url('${doodleDesktop}');

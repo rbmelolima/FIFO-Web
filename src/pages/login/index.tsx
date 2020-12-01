@@ -1,7 +1,7 @@
 import React from 'react';
 import * as styles from './styles';
 
-import Logo from '../../assets/logo/LOGO.svg';
+import Logo from '../../assets/logo/logo.svg';
 import { ButtonPrimary, ButtonSecondary } from '../../styles/buttons';
 import Input from '../../components/UI/input/index';
 
